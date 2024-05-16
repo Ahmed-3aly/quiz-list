@@ -46,11 +46,12 @@ class App extends React.Component
   saveQuiz(quizJson) {
     const S = this.state;
     let isAppend = false;
+    let i = -1;
     if (!(quizJson.id > -1)) {
       isAppend = true;
       const usedIds = S.list.map(x => x.id);
       let newId = -1;
-      for (var i = 0; i < usedIds.length; i++) {
+      for (i = 0; i < usedIds.length; i++) {
         if (usedIds.indexOf(i) > -1) {
           continue;
         }
@@ -58,7 +59,7 @@ class App extends React.Component
       }
       quizJson.id = newId;
     }
-    for (var i = 0; i < quizJson.questions_answers.length; i++) {
+    for (i = 0; i < quizJson.questions_answers.length; i++) {
       const question = quizJson.questions_answers[i];
       question.id = i;
       for (var j = 0; j < question.answers.length; j++) {
@@ -71,7 +72,7 @@ class App extends React.Component
       list.push(quizJson);
     }
     else {
-      for (var i = 0; i < list.length; i++) {
+      for (i = 0; i < list.length; i++) {
         const j = list[i];
         if (quizJson.id === j.id) {
           list[i] = quizJson;

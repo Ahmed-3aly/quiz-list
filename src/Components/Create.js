@@ -100,6 +100,7 @@ export class Create extends React.Component
     const S = this.state;
     const questionList = [...S.questions_answers];
     let answerList = questionList[questionIndex].answers;
+    // eslint-disable-next-line
     answerList = answerList.splice(answerIndex, 1);
     this.setState({ ...S, questions_answers: questionList, });
   }
@@ -124,7 +125,6 @@ export class Create extends React.Component
     P.save(S);
   }
   render() {
-    const P = this.props;
     const S = this.state;
     const label = S.id > -1 ? 'Edit' : 'Create';
     let canSubmit = true;
